@@ -1,0 +1,1 @@
+insert into todo (description , done , username ,priority , created_date,id) values ('work on springBoot server updation,error page yml changes' , false ,'Karthik K C' ,10,'2023-04-20',173609);

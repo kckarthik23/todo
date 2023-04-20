@@ -1,0 +1,21 @@
+logging:
+  level:
+    '[org.springframework.web]': trace
+spring:
+  datasource:
+    driverClassName: org.h2.Driver
+    url: jdbc:h2:mem:tododb
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
+    show-sql: true
+    defer-datasource-initialization: true
+    hibernate:
+     ddl: auto
+  mvc:
+    format:
+      date: yyyy-MM-dd
+  h2:
+    console:
+      enabled: true
+
+

@@ -17,6 +17,7 @@ import org.springframework.http.MediaType;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.mock.web.MockHttpServletRequest;
 import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.TestPropertySource;
 import org.springframework.test.web.servlet.MockMvc;
 
 import com.todo.todo.Launcher.TodoApplication;
@@ -45,6 +46,9 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @SpringBootTest(classes = TodoApplication.class)
 class TodoApplicationTests {
 
+	/*@Autowired
+	private MockMvc client;*/
+
 	@Autowired
 	private MockMvc client;
 
@@ -53,6 +57,20 @@ class TodoApplicationTests {
 	//@PersistenceContext
 	//EntityManager enm;
 
+
+	@MockBean
+	private TodoRep todorep;
+
+	@Autowired
+	private JdbcTemplate jdbc;
+
+	@BeforeEach
+public void setUpDatabase()
+	{
+		System.out.println("executed..........");
+		jdbc.execute("insert into todo (description , done , username ,priority , created_date,id)\n" +
+				"values ('work on springBoot server inundation,error page , yml changes' , false ,'Karthik K C' ,10,'2023-04-20','173607'); ");
+	}
 
 
 //	@Mock

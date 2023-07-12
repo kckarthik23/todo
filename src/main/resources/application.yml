@@ -2,20 +2,25 @@ logging:
   level:
     '[org.springframework.web]': trace
 spring:
-  datasource:
-    driverClassName: org.h2.Driver
-    url: jdbc:h2:mem:tododb
   jpa:
     database-platform: org.hibernate.dialect.H2Dialect
+    #database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
     show-sql: true
     defer-datasource-initialization: true
     hibernate:
-     ddl: auto
+      ddl-auto: create
+  datasource:
+    driverClassName: org.h2.Driver
+    #driverClassName: com.mysql.cj.jdbc.Driver
+    #url: jdbc:mysql://localhost/tododb
+    #username: karthikkc
+    #password: Kc@12345
+    url: jdbc:h2:mem:tododb
   mvc:
     format:
       date: yyyy-MM-dd
-  h2:
-    console:
-      enabled: true
+    view:
+      suffix: .html
+
 
 
